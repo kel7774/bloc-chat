@@ -3,9 +3,7 @@ import React, { Component } from 'react';
 class RoomList extends React.Component {
 constructor(props){
   super(props);
-
   this.roomsRef = this.props.firebase.database().ref('rooms');
-
   this.state = {
     rooms: []
   };
@@ -21,7 +19,13 @@ constructor(props){
 
   render() {
     return (
-
+      <section id="chat-room-list">
+      {this.state.rooms.map( (room, index) =>
+        <ul className="rooms" key = {index}>
+          <li className="room-index"></li>
+        </ul>
+      )}
+    </section>
     );
   }
 }

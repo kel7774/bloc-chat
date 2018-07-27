@@ -7,14 +7,14 @@ constructor(props){
   this.state = {
     rooms: []
   };
+}
 
-  componentDidMount(){
-    const room = snapshot.val();
-    room.key = snapshot.key;
-    this.roomsRef.on('child_added', snapshot => {
-      this.setState({ rooms: this.state.rooms.concat ( room ) });
-    });
-  }
+componentDidMount(){
+  const room = snapshot.val();
+  room.key = snapshot.key;
+  this.roomsRef.on('child_added', snapshot => {
+    this.setState({ rooms: this.state.rooms.concat ( room ) });
+  });
 }
 
   render() {

@@ -22,7 +22,7 @@ componentDidMount(){
       <section id="chat-room-list">
       {this.state.rooms.map( (room, index) =>
         <ul className="rooms" key = {index}>
-          <li className="room-index"></li>
+          <li className="room-index">room</li>
         </ul>
       )}
     </section>

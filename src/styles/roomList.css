@@ -1,0 +1,36 @@
+#chat-room-list{
+  float: left;
+  text-align: left;
+  width: 25%;
+  height: 100vh;
+  background-color: #dedede;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.room-index {
+  background-color: #FFFFFF;
+}
+
+#create-room-form {
+  padding-top: 10px;
+  margin: auto;
+  text-align: center;
+}
+
+label {
+  display: block;
+}
+
+#new_room {
+  border-radius: 20px;
+}
+
+input[type=submit]{
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  border-radius: 20px;
+}

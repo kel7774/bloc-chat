@@ -23,7 +23,9 @@ componentDidMount(){
 //forms
 handleChange(e) {
   e.preventDefault();
-  this.setState({ newRoomName: e.target.value });
+  if(!this.state.newRoomName) { return }
+  const enterRoom = { rooms: this.state.rooms }
+  this.setState({ newRoomName: [...this.state.rooms, enterRoom], newRoomName: '' });
 }
 
 createRoom() {
@@ -36,12 +38,12 @@ createRoom() {
       <section id="chat-room-list">
       <form id="create-room-form" onSubmit={ (e) => this.createRoom() }>
         <label for="create-room">Create Room:</label>
-        <input type="text" id="new_room" onChange={ (e) => this.handleChange(e)}/>
+        <input type="text" id="new_room" onChange={ (e) => this.handleChange(e)} />
         <input type="submit" />
       </form>
       {this.state.rooms.map( (room, index) =>
         <ul className="rooms" key = {index}>
-          <li className="room-index">{room.name}</li>
+          <li className="room-index">{this.state.rooms.name}</li>
         </ul>
       )}
     </section>

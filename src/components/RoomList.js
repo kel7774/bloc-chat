@@ -39,11 +39,11 @@ createRoom() {
         <input type="text" id="new_room" onChange={ (e) => this.handleChange(e)} />
         <input type="submit" />
       </form>
+      <ul className="rooms">
       {this.state.rooms.map( (room, index) =>
-        <ul className="rooms" key = {index} >
-          <li className="room-index">{room.name}</li>
-        </ul>
+        <li className="room-index" key = {index}>{room.name}</li>
       )}
+      </ul>
     </section>
     );
   }

@@ -22,6 +22,7 @@ componentDidMount(){
 
 //forms
 handleChange(e) {
+  e.preventDefault();
   this.setState({ newRoomName: e.target.value });
 }
 

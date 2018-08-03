@@ -11,33 +11,38 @@ constructor(props){
   };
 }
 
-componentDidMount(){
+componentDidMount() {
   this.roomsRef.on('child_added', snapshot => {
     const room = snapshot.val();
     room.key = snapshot.key;
-    this.setState({ rooms: this.state.rooms.concat ( room ) });
+    this.setState({
+      rooms: this.state.rooms.concat ( room ),
+      newRoomName: ''
+    });
   });
 }
 
 
 //forms
-handleChange(e) {
-  e.preventDefault();
-  if(!this.state.newRoomName) { return }
+handleChange = (e) => {
   this.setState({ newRoomName: e.target.value });
 }
 
-createRoom() {
-  const newRoom = { name: this.state.newRoomName };
-  this.roomsRef.push(newRoom);
+createRoom = (e) => {
+  e.preventDefault();
+
+  if (this.state.newRoomName) {
+    const newRoom = { name: this.state.newRoomName };
+    this.roomsRef.push(newRoom);
+  }
 }
 
   render() {
     return (
       <section id="chat-room-list">
-      <form id="create-room-form" onSubmit={ (e) => this.createRoom() }>
+      <form id="create-room-form" onSubmit={ this.createRoom }>
         <label for="create-room">Create Room:</label>
-        <input type="text" id="new_room" onChange={ (e) => this.handleChange(e)} />
+        <input type="text" id="new_room" onChange={ this.handleChange } value={this.state.newRoomName} />
         <input type="submit" />
       </form>
       <ul className="rooms">

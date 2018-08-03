@@ -3,5 +3,9 @@ import * as firebase from 'firebase';
 
 
 class MessageList extends React.Component {
-  
+
+}
+
+componentDidMount(){
+
 }

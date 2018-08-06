@@ -6,7 +6,6 @@ class MessageList extends React.Component {
     super(props);
     this.state = {
       messages: [],
-      newMessage: '',
       content: '',
       username: '',
       sentAt: '',
@@ -20,8 +19,7 @@ componentDidMount() {
     const message = snapshot.val();
     message.key = snapshot.key;
     this.setState({
-      messages: this.state.messages.concat ( message ),
-      newMessage: ''
+      messages: this.state.messages.concat ( message )
     });
   });
 }

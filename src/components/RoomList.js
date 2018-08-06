@@ -25,14 +25,15 @@ componentDidMount() {
 
 //forms
 handleChange = (e) => {
+  e.preventDefault();
   this.setState({ newRoomName: e.target.value });
 }
 
 createRoom = (e) => {
   e.preventDefault();
-
-  if (this.state.newRoomName) {
-    const newRoom = { name: this.state.newRoomName };
+      if (this.state.newRoomName) {
+        const newRoom = { name: this.state.newRoomName
+        };
     this.roomsRef.push(newRoom);
   }
 }

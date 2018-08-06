@@ -1,18 +1,35 @@
 #chat-room-list{
   float: left;
-  text-align: left;
-  width: 25%;
+  width: 22%;
   height: 100vh;
   background-color: #dedede;
+  overflow: scroll;
 }
 
 ul {
   list-style-type: none;
+  background: 100px;
+}
+
+.rooms {
+  width: 70%;
+  position: center;
 }
 
 .room-index {
-  background-color: #FFFFFF;
+  background-color: transparent;
+  padding: 10px;
+  margin: 5px;
+  border: solid 1px black;
+  border-radius: 20px;
 }
+
+.room-index:hover {
+  background-color: black;
+  color: white;
+  cursor: default;
+}
+
 
 #create-room-form {
   padding-top: 10px;

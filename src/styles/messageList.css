@@ -1,0 +1,7 @@
+#message-list {
+  overflow: scroll;
+}
+
+.room-title {
+  margin: 0 auto;
+}

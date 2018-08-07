@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/roomList.css';
 
-class RoomList extends React.Component {
+class RoomList extends Component {
 constructor(props){
   super(props);
   this.roomsRef = this.props.firebase.database().ref('rooms');
@@ -19,17 +19,9 @@ componentDidMount() {
     this.setState({
       rooms: this.state.rooms.concat ( room ),
       newRoomName: '',
-      display: false
     });
   });
 }
-
-//handling how the messages display from interacting with rooms
-clickActiveRoom = (room) => {
-  const selectedRoom = room;
-  this.props.makeActiveRoom( room );
-}
-
 
 //forms
 handleChange = (e) => {
@@ -46,6 +38,10 @@ createRoom = (e) => {
   }
 }
 
+activeRoom = ( room ) => {
+  const activeRoomClicked = room;
+  this.props.makeActiveRoom( room );
+}
 
 
   render() {
@@ -54,13 +50,19 @@ createRoom = (e) => {
       <div id="form-container">
         <form id="create-room-form" onSubmit={ this.createRoom }>
           <label for="create-room">Create Room:</label>
-          <input type="text" id="new_room" onChange={ this.handleChange } value={this.state.newRoomName} />
+          <input type="text" id="new_room"
+          onChange={ this.handleChange }
+          value={this.state.newRoomName} />
           <input type="submit" />
         </form>
       </div>
       <ul className="rooms">
       {this.state.rooms.map( (room, index) =>
-        <li className="room-index" key = {index} onClick ={ this.clickActiveRoom }>{room.name}</li>
+        <li className="room-index"
+        key = {index}
+        onClick ={ this.activeRoom }>
+        {room.name}
+        </li>
       )}
       </ul>
     </section>

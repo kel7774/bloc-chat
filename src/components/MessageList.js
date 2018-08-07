@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/messageList.css';
 
-class MessageList extends React.Component {
+class MessageList extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -27,34 +27,28 @@ componentDidMount() {
 
 render () {
   return (
-    <section id="message-list">
+  <section id="message-container">
+  <div id="message-title">
     <h2>Messages</h2>
-    <h3>{this.props.activeRoom.name}</h3>
-    <table id="message-list">
-      <colgroup>
-        <col id="user-name" />
-        <col id="message-content" />
-        <col id="message-sent-time" />
-      </colgroup>
-      <tbody>
-        {this.state.messages.map( (message, index) =>
-        <tr className="message-item" key={index}>
-          <td className="message-contents">
-            {message.username}
-          </td>
-          <td>
-            {message.content}
-          </td>
-          <td>
-            {message.sentAt}
-          </td>
-        </tr>
-      )}
-      </tbody>
-    </table>
-    </section>
-    )
-  }
+    <h3>{ this.props.activeRoom.name }</h3>
+  </div>
+    <ul>
+        { this.state.messages.map( ( message, index ) => {
+          if (this.props.activeRoom.roomId === message.roomId) {
+            return
+            <table key={index}>
+              <tr>
+                <td>{ message.username }</td>
+                <td>{ message.content }</td>
+                <td>{ message.sentAt }</td>
+              </tr>
+            </table>
+    }}
+  )}
+  </ul>
+  </section>
+)
 }
+  }
 
 export default MessageList;

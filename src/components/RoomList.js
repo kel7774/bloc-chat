@@ -38,9 +38,10 @@ createRoom = (e) => {
   }
 }
 
+//rooms being clicked on
 activeRoom = ( room ) => {
-  const activeRoomClicked = room;
   this.props.makeActiveRoom( room );
+  this.setState({ display: true });
 }
 
 

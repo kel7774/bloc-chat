@@ -30,9 +30,8 @@ render () {
   <section id="message-container">
   <div id="message-title">
     <h2>Messages</h2>
-    <h3>{ this.props.activeRoom.name }</h3>
   </div>
-    <ul>
+    <div id="message-content">
         { this.state.messages.map( ( message, index ) => {
           if (this.props.activeRoom.roomId === message.roomId) {
             return
@@ -45,7 +44,7 @@ render () {
             </table>
     }}
   )}
-  </ul>
+  </div>
   </section>
 )
 }

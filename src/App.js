@@ -34,6 +34,7 @@ class App extends Component {
           <RoomList
           firebase={firebase}
           makeActiveRoom={this.makeActiveRoom}
+          activeRoom={this.state.activeRoom}
           />
           </div>
         <div className="message-list-container">

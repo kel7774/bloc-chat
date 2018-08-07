@@ -29,6 +29,7 @@ render () {
   return (
     <section id="message-list">
     <h2>Messages</h2>
+    <h3>{this.props.activeRoom.name}</h3>
     <table id="message-list">
       <colgroup>
         <col id="user-name" />

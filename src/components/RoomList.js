@@ -7,7 +7,8 @@ constructor(props){
   this.roomsRef = this.props.firebase.database().ref('rooms');
   this.state = {
     rooms: [],
-    newRoomName: ''
+    newRoomName: '',
+    display: false
   };
 }
 
@@ -17,9 +18,16 @@ componentDidMount() {
     room.key = snapshot.key;
     this.setState({
       rooms: this.state.rooms.concat ( room ),
-      newRoomName: ''
+      newRoomName: '',
+      display: false
     });
   });
+}
+
+//handling how the messages display from interacting with rooms
+clickActiveRoom = (room) => {
+  const selectedRoom = room;
+  this.props.makeActiveRoom( room );
 }
 
 
@@ -38,17 +46,21 @@ createRoom = (e) => {
   }
 }
 
+
+
   render() {
     return (
       <section id="chat-room-list">
-      <form id="create-room-form" onSubmit={ this.createRoom }>
-        <label for="create-room">Create Room:</label>
-        <input type="text" id="new_room" onChange={ this.handleChange } value={this.state.newRoomName} />
-        <input type="submit" />
-      </form>
+      <div id="form-container">
+        <form id="create-room-form" onSubmit={ this.createRoom }>
+          <label for="create-room">Create Room:</label>
+          <input type="text" id="new_room" onChange={ this.handleChange } value={this.state.newRoomName} />
+          <input type="submit" />
+        </form>
+      </div>
       <ul className="rooms">
       {this.state.rooms.map( (room, index) =>
-        <li className="room-index" key = {index}>{room.name}</li>
+        <li className="room-index" key = {index} onClick ={ this.clickActiveRoom }>{room.name}</li>
       )}
       </ul>
     </section>

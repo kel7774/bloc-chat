@@ -42,6 +42,7 @@ createRoom = (e) => {
 activeRoom = ( room ) => {
   this.props.makeActiveRoom( room );
   this.setState({ display: true });
+  console.log(room);
 }
 
 
@@ -61,7 +62,7 @@ activeRoom = ( room ) => {
       {this.state.rooms.map( (room, index) =>
         <li className="room-index"
         key = {index}
-        onClick ={ this.activeRoom }>
+        onClick ={ (e) => this.activeRoom(room) }>
         {room.name}
         </li>
       )}

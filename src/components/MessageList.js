@@ -32,9 +32,9 @@ render () {
     <h2>Messages</h2>
   </div>
     <div id="message-content">
-        { this.state.messages.map( ( message, index ) => {
-          if (this.props.activeRoom.roomId === message.roomId) {
-            return
+        { this.state.messages
+          .filter(roomId => roomId !== this.state.messages.roomID )
+          .map( (message, index) =>
             <table key={index}>
               <tr>
                 <td>{ message.username }</td>
@@ -42,7 +42,6 @@ render () {
                 <td>{ message.sentAt }</td>
               </tr>
             </table>
-    }}
   )}
   </div>
   </section>

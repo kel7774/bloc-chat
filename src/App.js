@@ -31,7 +31,7 @@ class App extends Component {
   }
 
   setUser = ( user ) => {
-    this.setState({ user: e.target.value });
+    this.setState({ user: user });
   }
 
 
@@ -47,13 +47,16 @@ class App extends Component {
           </div>
         <div className="user-container">
           <User
-            setUser={ (e) => this.setUser(user) }
+            firebase={firebase}
+            setUser={ (user) => this.setUser(user) }
+            user={ this.state.user }
           />
         </div>
         <div className="message-list-container">
           <MessageList
             firebase={firebase}
             activeRoom={this.state.activeRoom}
+            user={ this.state.user }
           />
         </div>
       </div>

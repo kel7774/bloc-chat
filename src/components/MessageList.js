@@ -33,7 +33,7 @@ render () {
   </div>
     <div id="message-content">
         { this.state.messages
-          .filter(roomId => roomId !== this.state.messages.roomID )
+          .filter(message => this.props.activeRoom.key === message.roomId )
           .map( (message, index) =>
             <table key={index}>
               <tr>

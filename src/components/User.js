@@ -19,6 +19,7 @@ componentDidMount(){
 }
 
   render(){
+    let guestUser = 'Guest User';
     return(
         <div id="user-sign-in">
           <h3>Login to Bloc Chat</h3>
@@ -31,7 +32,7 @@ componentDidMount(){
               </button>
             </div>
             <div id="display-user-name">
-            {this.props.user ? this.props.user.displayName : <p>Guest</p>}
+            {this.props.user ? this.props.user.displayName : guestUser }
             </div>
         </div>
     )

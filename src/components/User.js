@@ -19,16 +19,17 @@ componentDidMount(){
 }
 
   render(){
+    //plugs in at display-user-name
     let guestUser = 'Guest User';
     return(
         <div id="user-sign-in">
-          <h3>Login to Bloc Chat</h3>
+          <h3>Bloc Chat Login:</h3>
             <div id="button-container">
               <button onClick={() => this.signIn()}>
                 Login
               </button>
               <button onClick={() => this.signOut()}>
-                Log Out
+                LogOut
               </button>
             </div>
             <div id="display-user-name">

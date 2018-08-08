@@ -1,18 +1,10 @@
-#chat-room-list{
-  float: left;
-  width: 22%;
-  height: 100vh;
-  background-color: #dedede;
-  overflow: scroll;
-}
-
 ul {
   list-style-type: none;
   background: 100px;
 }
 
 .rooms {
-  width: 70%;
+  width: 80%;
   position: center;
 }
 

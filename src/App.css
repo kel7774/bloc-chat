@@ -1,6 +1,13 @@
 .App {
   text-align: center;
 }
+.room-list-container{
+    float: left;
+    width: 22%;
+    height: 100vh;
+    background-color: #dedede;
+    overflow: scroll;
+}
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;

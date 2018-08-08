@@ -1,7 +1,12 @@
-#message-list {
+#message-container {
   overflow: scroll;
+  text-align:left;
 }
 
 .room-title {
   margin: 0 auto;
+}
+
+#message-title{
+  text-align: center;
 }

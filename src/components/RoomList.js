@@ -62,7 +62,7 @@ activeRoom = ( room ) => {
       {this.state.rooms.map( (room, index) =>
         <li className="room-index"
         key = {index}
-        onClick ={ (e) => this.activeRoom(room) }>
+        onClick ={ () => this.activeRoom(room) }>
         {room.name}
         </li>
       )}

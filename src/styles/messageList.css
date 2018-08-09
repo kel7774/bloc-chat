@@ -1,10 +1,11 @@
 #message-container {
   overflow: scroll;
   text-align:left;
+  width: 71%;
 }
 
-.room-title {
-  margin: 0 auto;
+#message-content{
+  height: 100%;
 }
 
 #message-title{

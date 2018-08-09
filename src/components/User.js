@@ -19,11 +19,13 @@ componentDidMount(){
 }
 
   render(){
-    //plugs in at display-user-name
     let guestUser = 'Guest User';
     return(
         <div id="user-sign-in">
-          <h3>Bloc Chat Login:</h3>
+          <h4>Bloc Chat Login:</h4>
+          <div id="display-user-name">
+          {this.props.user ? this.props.user.displayName : guestUser }
+          </div>
             <div id="button-container">
               <button onClick={() => this.signIn()}>
                 Login
@@ -31,9 +33,6 @@ componentDidMount(){
               <button onClick={() => this.signOut()}>
                 LogOut
               </button>
-            </div>
-            <div id="display-user-name">
-            {this.props.user ? this.props.user.displayName : guestUser }
             </div>
         </div>
     )

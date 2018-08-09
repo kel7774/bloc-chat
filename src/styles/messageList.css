@@ -1,13 +1,17 @@
-#message-container {
-  overflow: scroll;
-  text-align:left;
-  width: 71%;
+.message-container{
+  display: flex;
+  flex-direction: row;
 }
 
-#message-content{
-  height: 100%;
+#messages {
+  flex: 1;
 }
 
-#message-title{
-  text-align: center;
+.message-username{
+  text-align: left;
+  flex: 1;
+}
+
+.message-sentAt{
+  float: right;
 }

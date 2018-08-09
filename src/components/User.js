@@ -21,19 +21,18 @@ componentDidMount(){
   render(){
     let guestUser = 'Guest User';
     return(
-        <div id="user-sign-in">
-          <h4>Bloc Chat Login:</h4>
-          <div id="display-user-name">
-          {this.props.user ? this.props.user.displayName : guestUser }
+        <div className="user-sign-in">
+          <div className="welcome-message">
+            <h4>Welcome {this.props.user ? this.props.user.displayName : guestUser }!</h4>
           </div>
-            <div id="button-container">
-              <button onClick={() => this.signIn()}>
-                Login
-              </button>
-              <button onClick={() => this.signOut()}>
-                LogOut
-              </button>
-            </div>
+          <div id="button-container">
+            <button onClick={() => this.signIn()}>
+              Login
+            </button>
+            <button onClick={() => this.signOut()}>
+              LogOut
+            </button>
+          </div>
         </div>
     )
   }

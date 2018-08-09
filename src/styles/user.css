@@ -1,6 +1,14 @@
-form {
-
+.user-sign-in {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
 }
+
+.welcome-message {
+  text-align: left;
+  flex: 1;
+}
+
 #button-container{
-  display: block;
+  float: right;
 }

@@ -27,19 +27,16 @@ componentDidMount() {
 
 render () {
   return (
-  <section id="message-container">
-  <div id="message-title">
-    <h2>Messages</h2>
-  </div>
-    <div id="message-content">
+  <section className="message-container">
+    <div id="messages">
         { this.state.messages
           .filter(message => this.props.activeRoom.key === message.roomId )
           .map( (message, index) =>
             <table key={index}>
               <tr>
-                <td>{ message.username }</td>
-                <td>{ message.content }</td>
-                <td>{ message.sentAt }</td>
+                <td className="message-username">{ message.username }</td>
+                <td className="message-content">{ message.content }</td>
+                <td className="message-sentAt">{ message.sentAt }</td>
               </tr>
             </table>
   )}

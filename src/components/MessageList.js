@@ -29,7 +29,7 @@ handleChange = (e) => {
 }
 
 createMessage = (e) => {
-  const formatTime = moment(this.props.firebase.database.ServerValue.TIMESTAMP).format("llll");
+  const formatTime = moment(this.props.firebase.database.ServerValue.TIMESTAMP).format("dddd, MMMM Do YYYY, h:mm:ss a");
   e.preventDefault();
   if(this.state.newMessageContent) {
     const newMessage = {

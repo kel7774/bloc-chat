@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Moment from 'react-moment';
+import moment from 'moment';
+import 'moment-timezone';
 import '../styles/messageList.css';
 
 class MessageList extends Component {
@@ -28,13 +29,14 @@ handleChange = (e) => {
 }
 
 createMessage = (e) => {
+  const formatTime = moment(this.props.firebase.database.ServerValue.TIMESTAMP).format("llll");
   e.preventDefault();
-  // let timeStamp = this.props.firebase.database.ServerValue.TIMESTAMP;
   if(this.state.newMessageContent) {
     const newMessage = {
       content: this.state.newMessageContent,
       username: this.props.user.displayName || 'guest',
       roomId: this.props.activeRoom.key,
+      sentAt: formatTime
      };
     this.messagesRef.push(newMessage);
   }

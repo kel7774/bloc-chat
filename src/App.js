@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Moment from 'react-moment';
 import * as firebase from 'firebase';
 import RoomList from './components/RoomList';
 import MessageList from './components/MessageList';

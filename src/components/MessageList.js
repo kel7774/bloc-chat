@@ -29,8 +29,8 @@ handleChange = (e) => {
 }
 
 createMessage = (e) => {
-  const formatTime = moment(this.props.firebase.database.ServerValue.TIMESTAMP).format("dddd, MMMM Do YYYY, h:mm:ss a");
   e.preventDefault();
+  const formatTime = this.props.firebase.database.ServerValue.TIMESTAMP;
   if(this.state.newMessageContent) {
     const newMessage = {
       content: this.state.newMessageContent,
@@ -44,6 +44,16 @@ createMessage = (e) => {
 
 
 render () {
+let time =  function (message) {
+    let timeStamp;
+    try {
+      timeStamp = moment(message.sentAt).format("dddd, MMMM Do YYYY, h:mm:ss a");
+    }
+    catch(e) {
+      timeStamp = 0;
+    }
+    return timeStamp;
+  };
   return (
     <section className="message-container">
       <div id="messages">
@@ -54,7 +64,7 @@ render () {
               <tr>
                 <td className="message-username">{ message.username }</td>
                 <td className="message-content">{ message.content }</td>
-                <td className="message-sentAt">{ message.sentAt }</td>
+                <td className="message-sentAt">{ time(message) }</td>
               </tr>
             </table>
         )}

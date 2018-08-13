@@ -42,7 +42,6 @@ createRoom = (e) => {
 activeRoom = ( room ) => {
   this.props.makeActiveRoom( room );
   this.setState({ display: true });
-  console.log(room);
 }
 
 

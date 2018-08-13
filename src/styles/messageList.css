@@ -1,17 +1,9 @@
 .message-container{
-  display: flex;
-  flex-direction: row;
-}
-
-#messages {
+  display: inline-flex;
+  justify-content: flex-start;
   flex: 1;
 }
 
-.message-username{
-  text-align: left;
-  flex: 1;
-}
-
-.message-sentAt{
-  float: right;
+#send-messages{
+  float: left;
 }

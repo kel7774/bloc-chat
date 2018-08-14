@@ -22,6 +22,10 @@ ul {
   cursor: default;
 }
 
+button{
+  border-radius: 20px;
+}
+
 
 #create-room-form {
   padding-top: 10px;

@@ -66,8 +66,8 @@ deleteRoom(index){
       {this.state.rooms.map( (room, index) =>
         <li className="room-index"
         key = {index}
-        deleteRoom = { () => this.deleteRoom(room) }
         onClick ={ () => this.activeRoom(room) }>
+        <button id="delete-button" onClick={ () => this.deleteRoom(room) }>X</button>
         {room.name}
         </li>
       )}

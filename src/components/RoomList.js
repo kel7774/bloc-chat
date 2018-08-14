@@ -8,7 +8,8 @@ constructor(props){
   this.state = {
     rooms: [],
     newRoomName: '',
-    display: false
+    display: false,
+    // editRoomName: ''
   };
 }
 
@@ -19,6 +20,7 @@ componentDidMount() {
     this.setState({
       rooms: this.state.rooms.concat ( room ),
       newRoomName: '',
+      // editRoomName: ''
     });
   });
 }
@@ -38,16 +40,29 @@ createRoom = (e) => {
   }
 }
 
-//rooms being clicked on
 activeRoom = ( room ) => {
   this.props.makeActiveRoom( room );
   this.setState({ display: true });
 }
 
-//delete rooms
 deleteRoom(index){
+  this.roomsRef.child(index.key).remove();
   this.setState({ rooms: this.state.rooms.filter(room => room !== index) })
 }
+
+//editing rooms
+// handleRoomChange = (e) => {
+//   e.preventDefault();
+//   this.setState({ changeRoomName: e.target.value })
+// }
+
+// editRoom = (e) => {
+//   e.preventDefault();
+//   if(this.state.changeRoomName) {
+//     const newName = { name: this.state.changeRoomName };
+//   }
+//   this.roomsRef.push(newName);
+// }
 
 
   render() {
@@ -68,7 +83,8 @@ deleteRoom(index){
         key = {index}
         onClick ={ () => this.activeRoom(room) }>
         <button id="delete-button" onClick={ () => this.deleteRoom(room) }>X</button>
-        {room.name}
+          {room.name}
+        <button id="edit-button">Edit</button>
         </li>
       )}
       </ul>

@@ -1,9 +1,6 @@
 .message-container{
-  display: inline-flex;
-  justify-content: flex-start;
-  flex: 1;
-}
-
-#send-messages{
-  float: left;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
 }

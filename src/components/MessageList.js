@@ -75,7 +75,7 @@ let time =  function (message) {
                 placeholder="Write your message here..."
                 onChange={ this.handleChange }
                 value={ this.state.newMessageContent }/>
-          <button>Enter</button>
+              <button id="enter-button">Enter</button>
         </form>
       </div>
     </section>

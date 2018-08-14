@@ -22,8 +22,14 @@ ul {
   cursor: default;
 }
 
-button{
+#delete-button{
   border-radius: 20px;
+  float: left;
+}
+
+#edit-button{
+  border-radius: 20px;
+  float:right;
 }
 
 

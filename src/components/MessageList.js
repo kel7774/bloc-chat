@@ -47,7 +47,7 @@ render () {
 let time =  function (message) {
     let timeStamp;
     try {
-      timeStamp = moment(message.sentAt).format("dddd, MMMM Do YYYY, h:mm:ss a");
+      timeStamp = moment(message.sentAt).format("ddd, MMM Do YY, h:mm a");
     }
     catch(e) {
       timeStamp = 0;

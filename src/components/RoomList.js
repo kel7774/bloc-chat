@@ -9,7 +9,6 @@ constructor(props){
     rooms: [],
     newRoomName: '',
     display: false,
-    // editRoomName: ''
   };
 }
 
@@ -20,7 +19,6 @@ componentDidMount() {
     this.setState({
       rooms: this.state.rooms.concat ( room ),
       newRoomName: '',
-      // editRoomName: ''
     });
   });
 }

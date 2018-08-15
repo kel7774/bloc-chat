@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import moment from 'moment';
-import 'moment-timezone';
+import Moment from 'react-moment';
 import '../styles/messageList.css';
 
 class MessageList extends Component {
@@ -44,16 +43,6 @@ createMessage = (e) => {
 
 
 render () {
-let time =  function (message) {
-    let timeStamp;
-    try {
-      timeStamp = moment(message.sentAt).format("ddd, MMM Do YY, h:mm a");
-    }
-    catch(e) {
-      timeStamp = 0;
-    }
-    return timeStamp;
-  };
   return (
     <section className="message-container">
       <div id="messages">
@@ -64,7 +53,11 @@ let time =  function (message) {
               <tr>
                 <td className="message-username">{ message.username }</td>
                 <td className="message-content">{ message.content }</td>
-                <td className="message-sentAt">{ time(message) }</td>
+                <td className="message-sentAt">
+                  <Moment format="ddd, MMM Do YY, h:mm a">
+                    {message.sentAt}
+                  </Moment>
+                </td>
               </tr>
             </table>
         )}

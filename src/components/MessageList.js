@@ -22,20 +22,20 @@ componentDidMount() {
   });
 }
 
-handleChange = (e) => {
+handleChange = e => {
   e.preventDefault();
   this.setState({ newMessageContent: e.target.value });
 }
 
-createMessage = (e) => {
+createMessage = e => {
   e.preventDefault();
-  const formatTime = this.props.firebase.database.ServerValue.TIMESTAMP;
+  const time = this.props.firebase.database.ServerValue.TIMESTAMP;
   if(this.state.newMessageContent) {
     const newMessage = {
       content: this.state.newMessageContent,
       username: this.props.user.displayName || 'guest',
       roomId: this.props.activeRoom.key,
-      sentAt: formatTime
+      sentAt: time
      };
     this.messagesRef.push(newMessage);
   }

@@ -26,12 +26,12 @@ class App extends Component {
     }
   }
 
-  makeActiveRoom = ( room ) => {
+  makeActiveRoom =  room  => {
     this.setState({ activeRoom : room });
   }
 
-  setUser = ( user ) => {
-    this.setState({ user: user });
+  setUser =  user  => {
+    this.setState({ user });
   }
 
 

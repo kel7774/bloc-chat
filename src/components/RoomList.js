@@ -24,12 +24,12 @@ componentDidMount() {
 }
 
 //forms
-handleChange = (e) => {
+handleChange = e => {
   e.preventDefault();
   this.setState({ newRoomName: e.target.value });
 }
 
-createRoom = (e) => {
+createRoom = e => {
   e.preventDefault();
       if (this.state.newRoomName) {
         const newRoom = { name: this.state.newRoomName
@@ -38,7 +38,7 @@ createRoom = (e) => {
   }
 }
 
-activeRoom = ( room ) => {
+activeRoom = room => {
   this.props.makeActiveRoom( room );
   this.setState({ display: true });
 }
@@ -47,21 +47,6 @@ deleteRoom(index){
   this.roomsRef.child(index.key).remove();
   this.setState({ rooms: this.state.rooms.filter(room => room !== index) })
 }
-
-//editing rooms
-// handleRoomChange = (e) => {
-//   e.preventDefault();
-//   this.setState({ changeRoomName: e.target.value })
-// }
-
-// editRoom = (e) => {
-//   e.preventDefault();
-//   if(this.state.changeRoomName) {
-//     const newName = { name: this.state.changeRoomName };
-//   }
-//   this.roomsRef.push(newName);
-// }
-
 
   render() {
     return (
@@ -76,12 +61,17 @@ deleteRoom(index){
         </form>
       </div>
       <ul className="rooms">
-      {this.state.rooms.map( (room, index) =>
+        {this.state.rooms.map( (room, index) =>
         <li className="room-index"
         key = {index}
-        onClick ={ () => this.activeRoom(room) }>
-        <button id="delete-button" onClick={ () => this.deleteRoom(room) }>X</button>
-          {room.name}
+        onClick ={ () => this.activeRoom(room) }
+        >
+        <button
+          id="delete-button"
+          onClick={ () => this.deleteRoom(room) }>
+          X
+        </button>
+        {room.name}
         <button id="edit-button">Edit</button>
         </li>
       )}
